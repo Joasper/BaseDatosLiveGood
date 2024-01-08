@@ -21,17 +21,6 @@ const CrearUsuario = async (req = request, res = response) => {
     delete req.body.Billetera;
   } 
 
-const validarBilletera = await Login.findOne({
-    Billetera: Billetera,
-  });
-
-
-  
-  if (validarBilletera) {
-    return res.status(401).json({
-      msg: "Correo o Billetera ya existe",
-    });
-  }
 
   try {
     const login = new Login(req.body);
